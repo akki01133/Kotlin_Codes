@@ -4,10 +4,10 @@ interface Clonable{
 }
 
 abstract class Shape{
-    abstract fun area() : Double
+    abstract fun area()
 }
 
-open class Circle(val r: Double): Shape(),Clonable{
+open class Circle(var r: Double): Shape(),Clonable{
     override fun area() = println("area of circle is :- "+ Math.PI * r * r)
   /**
    * -implementation of clone() function in Circle class
@@ -16,8 +16,8 @@ open class Circle(val r: Double): Shape(),Clonable{
    *  of each other
    */
   override fun clone(): Circle {
-        return object : Circle(this.area){
-            override fun area()= super.area()
+        return object : Circle(this.r){
+            override fun area(){ super.area() }
             override fun clone(): Circle{
                 return super.clone()
             }
