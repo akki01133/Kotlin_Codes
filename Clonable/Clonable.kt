@@ -8,7 +8,7 @@ abstract class Shape{
 }
 
 open class Circle(val r: Double): Shape(),Clonable{
-    override fun area() = Math.PI * r * r
+    override fun area() = println("area of circle is :- "+ Math.PI * r * r)
   /**
    * -implementation of clone() function in Circle class
    * -circle objects can be clones using clone() method 
@@ -16,7 +16,7 @@ open class Circle(val r: Double): Shape(),Clonable{
    *  of each other
    */
   override fun clone(): Circle {
-        return object : Circle(4.0){
+        return object : Circle(this.area){
             override fun area()= super.area()
             override fun clone(): Circle{
                 return super.clone()
